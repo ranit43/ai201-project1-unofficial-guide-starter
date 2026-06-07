@@ -15,19 +15,19 @@ My domain is student-facing knowledge about UCLA dining halls and on-campus eate
 
 ## Documents
 
-| # | Source | Description | URL or location |
-|---|--------|-------------|-----------------|
-| 1 | Daily Bruin - "Bruin 101: Dining" | Podcast transcript where UCLA students explain meal plans and review dining halls, takeout locations, food trucks, and favorites. | `documents/ucla-dining-hall/ucla-cld/01_dailybruin_bruin101_dining_podcast.txt`; https://dailybruin.com/2022/09/17/bruin101-dining |
-| 2 | Daily Bruin - "The Quad: Bruins savor taste of UCLA's No. 1-ranked dining hall food" | Student opinions about UCLA's highly ranked dining, including Bruin Plate, Epicuria, atmosphere, and variety. | `documents/ucla-dining-hall/ucla-cld/02_dailybruin_no1_ranked_dining.txt`; https://dailybruin.com/2021/10/24/the-quad-bruins-savor-taste-of-uclas-no-1-ranked-dining-hall-food |
-| 3 | Daily Bruin Stack - "Can students eat healthy at UCLA's dining halls?" | Nutrition-focused article about whether students can eat healthy at UCLA dining halls, with discussion of Bruin Plate, De Neve, Epicuria, and student choices. | `documents/ucla-dining-hall/ucla-cld/03_dailybruin_healthy_eating_dining_halls.txt`; https://dailybruin.com/2026/01/31/can-students-eat-healthy-at-uclas-dining-halls |
-| 4 | Daily Bruin - "From schedule changes to strikes, students discuss UCLA Dining experiences" | Student experiences with 2024-2025 dining challenges, including long food truck lines, mobile-ordering delays, strikes, and modified dining options. | `documents/ucla-dining-hall/ucla-cld/04_dailybruin_schedule_changes_strikes.txt`; https://dailybruin.com/2025/06/08/from-schedule-changes-to-strikes-students-discuss-ucla-dining-experiences |
-| 5 | Daily Bruin - pest control investigation | Investigation about pest-control budgeting and a rat infestation that affected UCLA residential dining halls. | `documents/ucla-dining-hall/ucla-cld/05_dailybruin_pest_control_investigation.txt`; https://dailybruin.com/2026/01/16/investigation-reveals-ucla-dining-cut-pest-control-budget-ahead-of-rat-infestation |
-| 6 | Daily Bruin - curated dining hall playlists | Article about music and atmosphere in dining halls, especially Bruin Plate and Epicuria. | `documents/ucla-dining-hall/ucla-cld/06_dailybruin_music_dining_halls.txt`; https://dailybruin.com/2026/01/30/music-tuned-to-shape-ucla-dining-hall-experiences-through-curated-playlists |
-| 7 | BruinLife - "A look into on-campus dining" | Student blog guide with ratings and practical summaries for UCLA dining halls and takeout locations. | `documents/ucla-dining-hall/ucla-cld/07_bruinlife_oncampus_dining_guide.txt`; https://bruinlife.com/a-look-into-on-campus-dining/ |
-| 8 | The Stack - "UCLA's most popular dining halls" | Data journalism article using swipe counts to describe popularity, traffic, peak times, and wait-time patterns. | `documents/ucla-dining-hall/ucla-cld/08_stack_dining_popularity_analysis.txt`; https://stack.dailybruin.com/2022/02/17/dining-halls/ |
-| 9 | Wanderlog - Bruin Plate reviews | Aggregated visitor/student review text focused on Bruin Plate's healthy food, freshness, crowding, and access rules. | `documents/ucla-dining-hall/ucla-cld/09_wanderlog_bruin_plate_reviews.txt`; https://wanderlog.com/place/details/524688 |
-| 10 | Substack - "UCLA's dining halls, authoritatively ranked" | Opinionated student ranking of UCLA dining halls and takeout spots, with specific praise and criticism. | `documents/ucla-dining-hall/ucla-cld/10_substack_authoritative_rankings.txt`; https://thefoodconnoisseur.substack.com/p/ranking-uclas-dining-halls |
-| 11 | UCLA Alumni - "Campus Eats: Dining Choices Across UCLA" | Alumni newsletter page with short descriptions and student quotes about Hill, North Campus, South Campus, and Central Campus eateries. | `documents/ucla-dining-hall/ucla-cld/11_alumni_campus_eats_student_reviews.txt`; https://newsletter.alumni.ucla.edu/connect/2022/april/campus-eats/default.html |
+| #   | Source                                                                                     | Description                                                                                                                                                    | URL or location                                                                                                                                                                                          |
+| --- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Daily Bruin - "Bruin 101: Dining"                                                          | Podcast transcript where UCLA students explain meal plans and review dining halls, takeout locations, food trucks, and favorites.                              | `documents/ucla-dining-hall/ucla-cld/01_dailybruin_bruin101_dining_podcast.txt`; https://dailybruin.com/2022/09/17/bruin101-dining                                                                       |
+| 2   | Daily Bruin - "The Quad: Bruins savor taste of UCLA's No. 1-ranked dining hall food"       | Student opinions about UCLA's highly ranked dining, including Bruin Plate, Epicuria, atmosphere, and variety.                                                  | `documents/ucla-dining-hall/ucla-cld/02_dailybruin_no1_ranked_dining.txt`; https://dailybruin.com/2021/10/24/the-quad-bruins-savor-taste-of-uclas-no-1-ranked-dining-hall-food                           |
+| 3   | Daily Bruin Stack - "Can students eat healthy at UCLA's dining halls?"                     | Nutrition-focused article about whether students can eat healthy at UCLA dining halls, with discussion of Bruin Plate, De Neve, Epicuria, and student choices. | `documents/ucla-dining-hall/ucla-cld/03_dailybruin_healthy_eating_dining_halls.txt`; https://dailybruin.com/2026/01/31/can-students-eat-healthy-at-uclas-dining-halls                                    |
+| 4   | Daily Bruin - "From schedule changes to strikes, students discuss UCLA Dining experiences" | Student experiences with 2024-2025 dining challenges, including long food truck lines, mobile-ordering delays, strikes, and modified dining options.           | `documents/ucla-dining-hall/ucla-cld/04_dailybruin_schedule_changes_strikes.txt`; https://dailybruin.com/2025/06/08/from-schedule-changes-to-strikes-students-discuss-ucla-dining-experiences            |
+| 5   | Daily Bruin - pest control investigation                                                   | Investigation about pest-control budgeting and a rat infestation that affected UCLA residential dining halls.                                                  | `documents/ucla-dining-hall/ucla-cld/05_dailybruin_pest_control_investigation.txt`; https://dailybruin.com/2026/01/16/investigation-reveals-ucla-dining-cut-pest-control-budget-ahead-of-rat-infestation |
+| 6   | Daily Bruin - curated dining hall playlists                                                | Article about music and atmosphere in dining halls, especially Bruin Plate and Epicuria.                                                                       | `documents/ucla-dining-hall/ucla-cld/06_dailybruin_music_dining_halls.txt`; https://dailybruin.com/2026/01/30/music-tuned-to-shape-ucla-dining-hall-experiences-through-curated-playlists                |
+| 7   | BruinLife - "A look into on-campus dining"                                                 | Student blog guide with ratings and practical summaries for UCLA dining halls and takeout locations.                                                           | `documents/ucla-dining-hall/ucla-cld/07_bruinlife_oncampus_dining_guide.txt`; https://bruinlife.com/a-look-into-on-campus-dining/                                                                        |
+| 8   | The Stack - "UCLA's most popular dining halls"                                             | Data journalism article using swipe counts to describe popularity, traffic, peak times, and wait-time patterns.                                                | `documents/ucla-dining-hall/ucla-cld/08_stack_dining_popularity_analysis.txt`; https://stack.dailybruin.com/2022/02/17/dining-halls/                                                                     |
+| 9   | Wanderlog - Bruin Plate reviews                                                            | Aggregated visitor/student review text focused on Bruin Plate's healthy food, freshness, crowding, and access rules.                                           | `documents/ucla-dining-hall/ucla-cld/09_wanderlog_bruin_plate_reviews.txt`; https://wanderlog.com/place/details/524688                                                                                   |
+| 10  | Substack - "UCLA's dining halls, authoritatively ranked"                                   | Opinionated student ranking of UCLA dining halls and takeout spots, with specific praise and criticism.                                                        | `documents/ucla-dining-hall/ucla-cld/10_substack_authoritative_rankings.txt`; https://thefoodconnoisseur.substack.com/p/ranking-uclas-dining-halls                                                       |
+| 11  | UCLA Alumni - "Campus Eats: Dining Choices Across UCLA"                                    | Alumni newsletter page with short descriptions and student quotes about Hill, North Campus, South Campus, and Central Campus eateries.                         | `documents/ucla-dining-hall/ucla-cld/11_alumni_campus_eats_student_reviews.txt`; https://newsletter.alumni.ucla.edu/connect/2022/april/campus-eats/default.html                                          |
 
 ---
 
@@ -58,11 +58,13 @@ My domain is student-facing knowledge about UCLA dining halls and on-campus eate
 
      TODO: Fill this in before building retrieval. -->
 
-**Embedding model:**
+**Embedding model:** I will use `sentence-transformers/all-MiniLM-L6-v2` through the `sentence-transformers` library. This matches the recommended project setup, runs locally without an API key, and is strong enough for semantic search over short student-facing articles, reviews, and podcast transcript chunks. I will store the resulting vectors in ChromaDB with metadata for the source document, source URL, title, and chunk position so retrieved evidence can be cited later.
 
-**Top-k:**
+**Top-k:** I will retrieve the top 5 chunks for each query. This should give the answer generator enough context to compare multiple student opinions or sources, while still keeping the prompt focused. We can increase and decrease this number during testing to find the best balance.
 
-**Production tradeoff reflection:**
+**Production tradeoff reflection:** For this class project, a local MiniLM model is a good fit because it is free, fast, private, and simple to run.
+In a production version, I would compare it against stronger embedding models that may better handle slang, nicknames, exact dining-location names, and messy student language.
+I would weigh retrieval accuracy against latency, cost, context length, and whether the model is local or API-hosted. I would also consider hybrid search where keyword matching can help semantic search avoid missing the right source.
 
 ---
 
@@ -75,13 +77,13 @@ My domain is student-facing knowledge about UCLA dining halls and on-campus eate
 
      TODO: Fill this in after skimming the UCLA sources more closely and before implementation. -->
 
-| # | Question | Expected answer |
-|---|----------|-----------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
+| #   | Question | Expected answer |
+| --- | -------- | --------------- |
+| 1   |          |                 |
+| 2   |          |                 |
+| 3   |          |                 |
+| 4   |          |                 |
+| 5   |          |                 |
 
 ---
 
