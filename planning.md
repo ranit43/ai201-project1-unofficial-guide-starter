@@ -40,11 +40,11 @@ My domain is student-facing knowledge about UCLA dining halls and on-campus eate
 
      TODO: Fill this in when starting Milestone 2. -->
 
-**Chunk size:**
+**Chunk size:** I will use recursive, structure-aware chunks of about 300-450 tokens each. The chunker will try to keep natural paragraphs or speaker turns together first, then split oversized sections by sentence if needed. I will avoid splitting in the middle of a sentence or separating a dining location name from the opinion or detail attached to it.
 
-**Overlap:**
+**Overlap:** I will use about 60-80 tokens of overlap between adjacent chunks when a document section has to be split. This should preserve context when a useful fact spans two nearby paragraphs, such as a dining hall name in one sentence and the student's reason or complaint in the next.
 
-**Reasoning:**
+**Reasoning:** The UCLA dining corpus is mixed: one long podcast transcript, several short news/blog articles, rankings, reviews, and a data-focused article about swipe counts and wait times. A fixed-size character split could cut podcast dialogue or article paragraphs in half, while very large chunks would mix unrelated topics like meal plans, Bruin Plate, De Neve, The Study, food trucks, and pest concerns. Following the lecture's guidance, the goal is a chunk that is just large enough to answer a student question on its own, but small enough that retrieval returns a focused piece of evidence. This strategy should work well for questions about specific dining halls, dietary restrictions, peak wait times, atmosphere, reliability, and operational issues.
 
 ---
 
