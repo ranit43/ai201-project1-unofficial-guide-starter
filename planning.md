@@ -130,6 +130,50 @@ I would weigh retrieval accuracy against latency, cost, context length, and whet
 
      TODO: Fill this in after choosing the implementation stack. -->
 
+This project will use a RAG pipeline with five main stages:
+
+```
+User question
+    |
+    v
+[1] DOCUMENT INGESTION       -> Load UCLA dining .txt files from documents/ucla-dining-hall/ucla-cld
+    Python file loader          Keep source document, source URL, title, and chunk position metadata
+    |
+    v
+[2] CHUNKING                 -> Split documents into focused, retrievable pieces
+    Recursive chunker           Paragraphs/speaker turns first, sentences as fallback
+    |                           Target: ~225-256 tokens (900-1200 chars),
+    |                           ~40-50 token (150-200 char) overlap, capped at the
+    |                           256-token MiniLM limit
+    v
+[3] EMBEDDING + VECTOR STORE -> Embed chunks and store them with metadata
+    all-MiniLM-L6-v2             sentence-transformers for embeddings
+    ChromaDB                     ChromaDB for local similarity search
+    |
+    v
+[4] RETRIEVAL                -> Embed the user question and retrieve top matches
+    ChromaDB query               top-k = 5 chunks, ranked by semantic similarity
+                                Pin the same MiniLM embedding function for indexing
+                                and query so vectors are comparable
+    |
+    v
+[5] GENERATION               -> Build a grounded prompt from retrieved chunks
+    Groq LLM                     Answer using only retrieved context
+                                Include source names/URLs in the final response
+```
+
+The most important data flow is the chunk metadata. Each chunk should stay attached to its source file, source URL, title, and chunk position from ingestion through retrieval. That metadata is what makes citation possible in the final answer.
+
+Technical decisions:
+
+- **Documents:** Plain `.txt` files already collected in the UCLA dining corpus.
+- **Chunking:** Recursive, structure-aware splitting because the corpus mixes podcast dialogue, student reviews, rankings, and news-style articles.
+- **Embeddings:** `sentence-transformers/all-MiniLM-L6-v2` because it runs locally and matches the recommended project setup.
+- **Vector store:** ChromaDB because it supports local semantic search and can store chunk metadata. Indexing and querying must use the same MiniLM embedding function so the stored vectors and query vector live in the same space.
+- **Retrieval:** Start with `top-k = 5` to balance enough context against prompt noise.
+- **Generation:** Groq LLM with a grounding instruction that tells the model to answer only from retrieved chunks and abstain when the answer is not present.
+  (Optional) This abstention behavior is what evaluation question 6 is designed to test.
+
 ---
 
 ## AI Tool Plan
