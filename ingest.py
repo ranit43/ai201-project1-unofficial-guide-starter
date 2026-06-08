@@ -15,7 +15,6 @@ from pathlib import Path
 from typing import Iterable
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-# TODO: take it as an argument instead of hardcoding it
 DOCS_PATH = PROJECT_ROOT / "documents" / "ucla-dining-hall" / "ucla-cld"
 
 TARGET_CHARS = 900
