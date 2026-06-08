@@ -188,6 +188,30 @@ Technical decisions:
 
 **Milestone 3 — Ingestion and chunking:**
 
+I plan to use Claude Code as the primary tool to help draft the ingestion and chunking script, with Codex/ChatGPT as a backup for second opinions.
+I will give it the Documents section, the Chunking Strategy section, and the Architecture section of this file, plus the project requirement that chunks must preserve source metadata. I will also give it the example code from the lecture and labs shared with us to give it a head start on the file loading, recursive chunking, and metadata handling.
+
+I expect it to produce Python code that loads all `.txt` files from `documents/ucla-dining-hall/ucla-cld`, extracts basic metadata from each file header, cleans the text lightly, and creates recursive chunks of about 225-256 tokens (~900-1200 characters) with ~40-50 tokens (~150-200 characters) of overlap, capped at the 256-token MiniLM limit so the embedding model does not silently truncate chunk tails.
+
+I will verify the output by printing several chunks from different document types, especially the long Bruin 101 podcast transcript and the shorter review/ranking articles. I will check that chunks are readable on their own, do not split sentences awkwardly, and keep source file/title/URL metadata attached.
+
 **Milestone 4 — Embedding and retrieval:**
 
+I plan to use Claude Code (with Codex as a backup) to help implement the embedding and retrieval code.
+I will give it the Retrieval Approach section, the Architecture section, and the expected chunk format from Milestone 3.
+I will also give it the example code from the lecture and labs shared with us to give it a head start on the embedding and ChromaDB indexing/querying.
+
+I expect it to produce code that loads `sentence-transformers/all-MiniLM-L6-v2`, embeds each chunk, stores chunks in ChromaDB with metadata, and defines a retrieval function that returns the top 5 chunks for a plain-language question.
+
+I will verify retrieval before adding generation by running several evaluation questions from this plan and reading the retrieved chunks directly.
+I will check whether the top results are actually about the requested dining hall, meal plan rule, wait-time pattern, or operational issue. If the results are off-target or too repetitive, I will adjust chunking or `top-k` before moving on.
+
 **Milestone 5 — Generation and interface:**
+
+I plan to use Cluade Code, Codex to help write the grounded generation prompt and a simple query interface.
+I will give it the Evaluation Plan, Anticipated Challenges, and Architecture sections, plus the requirement that answers must use only retrieved context and include source attribution. I will also give the the example code from the lecture and labs shared with us to give it a head start on building a Groq-based answer generator.
+
+I expect it to produce a Groq-based answer generator similar to our lab project.
+
+I will verify generation by running all evaluation questions and recording the system response, retrieved chunks, retrieval quality, and response accuracy.
+I will pay attention to question 6.
