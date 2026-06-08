@@ -1,7 +1,7 @@
 # The Unofficial Guide — Project 1
 
 > **How to use this template:**
-> Complete each section *after* you've built and tested the corresponding part of your system.
+> Complete each section _after_ you've built and tested the corresponding part of your system.
 > Do not write placeholder text — if a section isn't done yet, leave it blank and come back.
 > Every section below is required for submission. One-liners will not receive full credit.
 
@@ -22,18 +22,18 @@
      Be specific: include URLs, subreddit names, forum thread titles, or file names.
      Aim for variety — sources that together cover different subtopics or perspectives. -->
 
-| # | Source | Type | URL or file path |
-|---|--------|------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| #   | Source | Type | URL or file path |
+| --- | ------ | ---- | ---------------- |
+| 1   |        |      |                  |
+| 2   |        |      |                  |
+| 3   |        |      |                  |
+| 4   |        |      |                  |
+| 5   |        |      |                  |
+| 6   |        |      |                  |
+| 7   |        |      |                  |
+| 8   |        |      |                  |
+| 9   |        |      |                  |
+| 10  |        |      |                  |
 
 ---
 
@@ -46,13 +46,16 @@
      - Any preprocessing you did before chunking (e.g., stripping HTML, removing headers)
      - What your final chunk count was across all documents -->
 
-**Chunk size:**
+**Chunk size:** target 900 chars, max 1024
 
-**Overlap:**
+**Overlap:** 180 chars
 
 **Why these choices fit your documents:**
+The UCLA dining corpus is mixed: one long podcast transcript, several short news/blog articles, rankings, reviews, and a data-focused article about swipe counts and wait times. A fixed-size character split could cut podcast dialogue or article paragraphs in half, while very large chunks would mix unrelated topics like meal plans, Bruin Plate, De Neve, The Study, food trucks, and pest concerns.
+Following the lecture's guidance, the goal is a chunk that is just large enough to answer a student question on its own, but small enough that retrieval returns a focused piece of evidence.
+This strategy should work well for questions about specific dining halls, dietary restrictions, peak wait times, atmosphere, reliability, and operational issues.
 
-**Final chunk count:**
+**Final chunk count:** 148
 
 ---
 
@@ -91,13 +94,13 @@
      Be honest — a partially accurate or inaccurate result that you explain well is more
      valuable than a suspiciously perfect result. -->
 
-| # | Question | Expected answer | System response (summarized) | Retrieval quality | Response accuracy |
-|---|----------|-----------------|------------------------------|-------------------|-------------------|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| #   | Question | Expected answer | System response (summarized) | Retrieval quality | Response accuracy |
+| --- | -------- | --------------- | ---------------------------- | ----------------- | ----------------- |
+| 1   |          |                 |                              |                   |                   |
+| 2   |          |                 |                              |                   |                   |
+| 3   |          |                 |                              |                   |                   |
+| 4   |          |                 |                              |                   |                   |
+| 5   |          |                 |                              |                   |                   |
 
 **Retrieval quality:** Relevant / Partially relevant / Off-target  
 **Response accuracy:** Accurate / Partially accurate / Inaccurate
@@ -151,12 +154,12 @@
 
 **Instance 1**
 
-- *What I gave the AI:*
-- *What it produced:*
-- *What I changed or overrode:*
+- _What I gave the AI:_
+- _What it produced:_
+- _What I changed or overrode:_
 
 **Instance 2**
 
-- *What I gave the AI:*
-- *What it produced:*
-- *What I changed or overrode:*
+- _What I gave the AI:_
+- _What it produced:_
+- _What I changed or overrode:_
