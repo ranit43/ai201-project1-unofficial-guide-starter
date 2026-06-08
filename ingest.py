@@ -15,10 +15,12 @@ from pathlib import Path
 from typing import Iterable
 
 PROJECT_ROOT = Path(__file__).resolve().parent
+# TODO: take it as an argument instead of hardcoding it
 DOCS_PATH = PROJECT_ROOT / "documents" / "ucla-dining-hall" / "ucla-cld"
 
-TARGET_CHARS = 1_000
-MAX_CHARS = 1200
+TARGET_CHARS = 900
+# ? Anticipated Challenge #5
+MAX_CHARS = 1024
 OVERLAP_CHARS = 180
 MIN_CHARS = 120
 
