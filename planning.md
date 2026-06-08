@@ -81,11 +81,12 @@ I would weigh retrieval accuracy against latency, cost, context length, and whet
 
 | #   | Question | Expected answer |
 | --- | -------- | --------------- |
-| 1   |          |                 |
-| 2   |          |                 |
-| 3   |          |                 |
-| 4   |          |                 |
-| 5   |          |                 |
+| 1   | What do students and reviewers say makes Bruin Plate a good option for healthy eating or dietary restrictions? | The answer should mention that Bruin Plate/B-Plate is repeatedly described as health-focused, with fresh ingredients, salad/fruit options, balanced nutrition standards, and student praise for protein/healthy food. It should also mention that students with dietary restrictions describe B-Plate as easier to navigate, including references to vegetarian options and a gluten-free pantry. |
+| 2   | How do UCLA meal plan types differ between Regular (R) and Premium (P), according to the Bruin 101 podcast? | The answer should state that meal plans combine a number of meals per week, such as 11, 14, or 19, with a type, Regular or Premium. Regular plans allow one swipe per meal period and unused swipes do not carry over each week. Premium plans give swipes at the beginning of the quarter, allow multiple swipes in a meal period, and can be used through finals week. |
+| 3   | When are UCLA dining halls and quick-service/takeout locations usually busiest, according to The Stack's swipe analysis? | The answer should state that residential dining halls are busiest at dinner, generally peaking between 6 p.m. and 7 p.m., with De Neve's busiest period around 7 p.m. to 7:30 p.m. on Sundays. Quick-service/takeout locations usually peak around weekday lunch, especially between 11 a.m. and 12 p.m.; The Study stays busy across lunch and dinner and peaks around 9 a.m. for weekday breakfast. |
+| 4   | What recent UCLA Dining problems did students report around schedule changes, strikes, mobile ordering, and food trucks? | The answer should mention long food truck lines, mobile-ordering wait times up to two hours or temporary shutdowns of Transact Mobile Ordering, restricted ASUCLA meal-swipe hours, and dining-worker strikes that limited options or shifted dining halls such as De Neve, Feast, and Epicuria to takeout models. |
+| 5   | What do the sources say about The Study at Hedrick as a dining option? | The answer should mention that The Study is known for customizable sandwiches, salads, pizzas, breakfast items, extended/late-night dinner, and a study-friendly atmosphere. It should also capture the tradeoff: students describe the food as consistent or worth it, but lines and waits can be very long, with examples of waits over an hour or even around two hours. |
+| 6   | How much does a 14P meal plan cost in dollars per quarter? | This is an out-of-scope / abstention test. The corpus discusses how meal plans work (meal counts, R vs P, switching fees) but never states a dollar price for any plan. A correct system should say it does not have that information in the provided sources rather than inventing a number. This checks that the generator abstains instead of hallucinating when the retrieved chunks do not contain the answer. |
 
 ---
 
