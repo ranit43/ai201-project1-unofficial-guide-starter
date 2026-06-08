@@ -40,9 +40,9 @@ My domain is student-facing knowledge about UCLA dining halls and on-campus eate
 
      TODO: Fill this in when starting Milestone 2. -->
 
-**Chunk size:** I will use recursive, structure-aware chunks of about 300-450 tokens each. The chunker will try to keep natural paragraphs or speaker turns together first, then split oversized sections by sentence if needed. I will avoid splitting in the middle of a sentence or separating a dining location name from the opinion or detail attached to it.
+**Chunk size:** I will use recursive, structure-aware chunks of about 900-1200 characters each. The chunker will try to keep natural paragraphs or speaker turns together first, then split oversized sections by sentence, then by spaces only as a fallback. I will avoid splitting in the middle of a sentence or separating a dining location name from the opinion or detail attached to it. 
 
-**Overlap:** I will use about 60-80 tokens of overlap between adjacent chunks when a document section has to be split. This should preserve context when a useful fact spans two nearby paragraphs, such as a dining hall name in one sentence and the student's reason or complaint in the next.
+**Overlap:** I will use about 150-200 characters of overlap between adjacent chunks when a document section has to be split. This should preserve context when a useful fact spans two nearby paragraphs, such as a dining hall name in one sentence and the student's reason or complaint in the next.
 
 **Reasoning:** The UCLA dining corpus is mixed: one long podcast transcript, several short news/blog articles, rankings, reviews, and a data-focused article about swipe counts and wait times. A fixed-size character split could cut podcast dialogue or article paragraphs in half, while very large chunks would mix unrelated topics like meal plans, Bruin Plate, De Neve, The Study, food trucks, and pest concerns. Following the lecture's guidance, the goal is a chunk that is just large enough to answer a student question on its own, but small enough that retrieval returns a focused piece of evidence. This strategy should work well for questions about specific dining halls, dietary restrictions, peak wait times, atmosphere, reliability, and operational issues.
 
@@ -60,7 +60,9 @@ My domain is student-facing knowledge about UCLA dining halls and on-campus eate
 
 **Embedding model:** I will use `sentence-transformers/all-MiniLM-L6-v2` through the `sentence-transformers` library. This matches the recommended project setup, runs locally without an API key, and is strong enough for semantic search over short student-facing articles, reviews, and podcast transcript chunks. I will store the resulting vectors in ChromaDB with metadata for the source document, source URL, title, and chunk position so retrieved evidence can be cited later.
 
-**Top-k:** I will retrieve the top 5 chunks for each query. This should give the answer generator enough context to compare multiple student opinions or sources, while still keeping the prompt focused. We can increase and decrease this number during testing to find the best balance.
+**Query approach:** The retrieval function will call ChromaDB's `collection.query()` with `query_texts=[query]`, `n_results=5`, and `include=["documents", "metadatas", "distances"]`. Because ChromaDB returns nested lists to support batched queries, I will read from index `[0]` to get the documents, metadata, and distances for the single user query. Each returned result will include the chunk text, source title or file path, source URL, chunk position, and distance score.
+
+**Top-k:** I will retrieve the top 5 chunks for each query. This should give the answer generator enough context to compare multiple student opinions or sources, while still keeping the prompt focused. During evaluation, I will inspect the returned distance scores and relevance of each chunk. If weak or off-topic chunks consistently appear in the top 5, I may add a cosine-distance threshold so the generator does not receive irrelevant context.
 
 **Production tradeoff reflection:** For this class project, a local MiniLM model is a good fit because it is free, fast, private, and simple to run.
 In a production version, I would compare it against stronger embedding models that may better handle slang, nicknames, exact dining-location names, and messy student language.
