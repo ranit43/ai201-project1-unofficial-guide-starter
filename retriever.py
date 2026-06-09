@@ -27,9 +27,11 @@ def _model_cache_exists(model_name: str) -> bool:
     )
 
 
-if _model_cache_exists(EMBEDDING_MODEL):
-    os.environ.setdefault("HF_HUB_OFFLINE", "1")
-    os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+# Prefer the local Hugging Face cache so the demo app starts reliably offline.
+# If the model is missing, sentence-transformers will fail fast with a clear cache
+# error instead of hanging through repeated network retries.
+os.environ["HF_HUB_OFFLINE"] = "1"
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
 import chromadb
 from chromadb.utils import embedding_functions

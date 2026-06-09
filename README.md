@@ -81,13 +81,13 @@ I chose this model because it runs locally, does not require an API key, and is 
 
 **Index command:** `python retriever.py --rebuild-index --eval-smoke --top-k 5`
 
-| Query | Top relevant chunks | Retrieval notes |
-| --- | --- | --- |
-| What makes Bruin Plate good for healthy eating or dietary restrictions? | `02_dailybruin_no1_ranked_dining.txt`, `09_wanderlog_bruin_plate_reviews.txt`, `03_dailybruin_healthy_eating_dining_halls.txt`, `01_dailybruin_bruin101_dining_podcast.txt` | Relevant. Top distances were 0.2604, 0.296, and 0.2976. Results mention health standards, fresh/healthy options, B-Plate's healthy reputation, and a vegetarian student's experience. |
-| How do Regular and Premium meal plans differ, according to Bruin 101? | `01_dailybruin_bruin101_dining_podcast.txt` | Relevant when the query names Bruin 101. The correct chunk ranked first with distance 0.4028 and explains 11/14/19 plans, Regular weekly non-carryover swipes, and Premium quarter-level/multiple meal-period swipes. A less specific version of this query ranked the correct chunk second, so this is a tuning note. |
-| When are dining halls and quick-service/takeout locations usually busiest? | `08_stack_dining_popularity_analysis.txt` | Relevant. Top distances were 0.2617 and 0.2724. Results mention dinner peaks between 6 p.m. and 7 p.m., De Neve's Sunday 7-7:30 p.m. peak, and The Study traffic patterns. |
-| What recent dining problems involved schedule changes, strikes, mobile ordering, and food trucks? | `04_dailybruin_schedule_changes_strikes.txt` | Strongly relevant. Top distances were 0.2671, 0.2952, and 0.3199. Results mention strikes, takeout shifts, mobile ordering shutdowns, two-hour waits, food truck lines, and ASUCLA swipe restrictions. |
-| What do sources say about The Study at Hedrick? | `07_bruinlife_oncampus_dining_guide.txt`, `11_alumni_campus_eats_student_reviews.txt`, `04_dailybruin_schedule_changes_strikes.txt` | Mostly relevant. Top result distance was 0.2598 and directly describes The Study's sandwiches, salads, pizzas, quality, and long waits. Tail results above 0.5 are weaker and may need filtering in Milestone 5. |
+| Query                                                                                             | Top relevant chunks                                                                                                                                                         | Retrieval notes                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| What makes Bruin Plate good for healthy eating or dietary restrictions?                           | `02_dailybruin_no1_ranked_dining.txt`, `09_wanderlog_bruin_plate_reviews.txt`, `03_dailybruin_healthy_eating_dining_halls.txt`, `01_dailybruin_bruin101_dining_podcast.txt` | Relevant. Top distances were 0.2604, 0.296, and 0.2976. Results mention health standards, fresh/healthy options, B-Plate's healthy reputation, and a vegetarian student's experience.                                                                                                                                  |
+| How do Regular and Premium meal plans differ, according to Bruin 101?                             | `01_dailybruin_bruin101_dining_podcast.txt`                                                                                                                                 | Relevant when the query names Bruin 101. The correct chunk ranked first with distance 0.4028 and explains 11/14/19 plans, Regular weekly non-carryover swipes, and Premium quarter-level/multiple meal-period swipes. A less specific version of this query ranked the correct chunk second, so this is a tuning note. |
+| When are dining halls and quick-service/takeout locations usually busiest?                        | `08_stack_dining_popularity_analysis.txt`                                                                                                                                   | Relevant. Top distances were 0.2617 and 0.2724. Results mention dinner peaks between 6 p.m. and 7 p.m., De Neve's Sunday 7-7:30 p.m. peak, and The Study traffic patterns.                                                                                                                                             |
+| What recent dining problems involved schedule changes, strikes, mobile ordering, and food trucks? | `04_dailybruin_schedule_changes_strikes.txt`                                                                                                                                | Strongly relevant. Top distances were 0.2671, 0.2952, and 0.3199. Results mention strikes, takeout shifts, mobile ordering shutdowns, two-hour waits, food truck lines, and ASUCLA swipe restrictions.                                                                                                                 |
+| What do sources say about The Study at Hedrick?                                                   | `07_bruinlife_oncampus_dining_guide.txt`, `11_alumni_campus_eats_student_reviews.txt`, `04_dailybruin_schedule_changes_strikes.txt`                                         | Mostly relevant. Top result distance was 0.2598 and directly describes The Study's sandwiches, salads, pizzas, quality, and long waits. Tail results above 0.5 are weaker and may need filtering in Milestone 5.                                                                                                       |
 
 ---
 
@@ -102,7 +102,37 @@ I chose this model because it runs locally, does not require an API key, and is 
 
 **System prompt grounding instruction:**
 
+The generator uses this instruction in `generator.py`:
+
+> You answer questions for The Unofficial Guide to UCLA dining. Use only the retrieved context provided by the user. Do not use outside knowledge, current menus, current prices, or assumptions. If the context does not contain enough information to answer, say: "I don't have enough information in the provided sources to answer that." Keep the answer concise but specific. Cite claims with the numbered source markers like [1] or [2]. If sources disagree or are time-bound, say so instead of blending them into one certainty.
+
+Before calling Groq, the retrieved chunks are filtered with a cosine-distance threshold of `0.58` to avoid sending weak evidence to the model. If every chunk is above that threshold, the generator keeps only the top two chunks so the model can still make a context-grounded refusal instead of failing silently.
+
 **How source attribution is surfaced in the response:**
+
+Each retrieved chunk is formatted as a numbered context block with its source title, URL, date, retrieval distance, and text. The model is instructed to cite those chunk numbers inline, and `generator.py` appends a source list programmatically from chunk metadata so the final response always includes UCLA source titles and URLs.
+
+---
+
+```bash
+source .venv/bin/activate
+```
+
+## Query Interface
+
+Run the Gradio chat app from the project root:
+
+```bash
+python app.py
+```
+
+The app defaults to `http://127.0.0.1:8502`. To choose another port, set `GRADIO_SERVER_PORT`:
+
+```bash
+GRADIO_SERVER_PORT=7860 python app.py
+```
+
+The interface has one chat input for a UCLA dining question and returns a grounded answer with inline source numbers plus source titles and URLs.
 
 ---
 
