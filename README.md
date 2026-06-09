@@ -67,9 +67,27 @@ This strategy should work well for questions about specific dining halls, dietar
      Consider: context length limits, multilingual support, accuracy on domain-specific text,
      latency, and local vs. API-hosted. -->
 
-**Model used:**
+**Model used:** `sentence-transformers/all-MiniLM-L6-v2`, loaded through ChromaDB's `SentenceTransformerEmbeddingFunction`.
 
-**Production tradeoff reflection:**
+I chose this model because it runs locally, does not require an API key, and is fast enough for a small student-facing corpus. The index currently stores 148 chunks in a persistent ChromaDB collection named `unofficial-guide-chunks`.
+
+**Production tradeoff reflection:** If I were choosing an embedding model for a production version, I would compare retrieval accuracy against latency, hosting cost, context length, privacy, and maintenance complexity. A stronger API-hosted embedding model might understand slang, nicknames, and messy student language better, but it would add cost and dependency risk. A local model keeps the project simple and private, but may need keyword/hybrid search support for exact terms like "14P", "Regular", and "Premium".
+
+---
+
+## Retrieval Test Results
+
+<!-- Milestone 4 notes: semantic retrieval before generation. -->
+
+**Index command:** `python retriever.py --rebuild-index --eval-smoke --top-k 5`
+
+| Query | Top relevant chunks | Retrieval notes |
+| --- | --- | --- |
+| What makes Bruin Plate good for healthy eating or dietary restrictions? | `02_dailybruin_no1_ranked_dining.txt`, `09_wanderlog_bruin_plate_reviews.txt`, `03_dailybruin_healthy_eating_dining_halls.txt`, `01_dailybruin_bruin101_dining_podcast.txt` | Relevant. Top distances were 0.2604, 0.296, and 0.2976. Results mention health standards, fresh/healthy options, B-Plate's healthy reputation, and a vegetarian student's experience. |
+| How do Regular and Premium meal plans differ, according to Bruin 101? | `01_dailybruin_bruin101_dining_podcast.txt` | Relevant when the query names Bruin 101. The correct chunk ranked first with distance 0.4028 and explains 11/14/19 plans, Regular weekly non-carryover swipes, and Premium quarter-level/multiple meal-period swipes. A less specific version of this query ranked the correct chunk second, so this is a tuning note. |
+| When are dining halls and quick-service/takeout locations usually busiest? | `08_stack_dining_popularity_analysis.txt` | Relevant. Top distances were 0.2617 and 0.2724. Results mention dinner peaks between 6 p.m. and 7 p.m., De Neve's Sunday 7-7:30 p.m. peak, and The Study traffic patterns. |
+| What recent dining problems involved schedule changes, strikes, mobile ordering, and food trucks? | `04_dailybruin_schedule_changes_strikes.txt` | Strongly relevant. Top distances were 0.2671, 0.2952, and 0.3199. Results mention strikes, takeout shifts, mobile ordering shutdowns, two-hour waits, food truck lines, and ASUCLA swipe restrictions. |
+| What do sources say about The Study at Hedrick? | `07_bruinlife_oncampus_dining_guide.txt`, `11_alumni_campus_eats_student_reviews.txt`, `04_dailybruin_schedule_changes_strikes.txt` | Mostly relevant. Top result distance was 0.2598 and directly describes The Study's sandwiches, salads, pizzas, quality, and long waits. Tail results above 0.5 are weaker and may need filtering in Milestone 5. |
 
 ---
 
