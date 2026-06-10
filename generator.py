@@ -13,7 +13,7 @@ MAX_CHUNK_CHARS = 1400
 LOW_RELEVANCE_DISTANCE = 0.58
 
 NO_CONTEXT_RESPONSE = (
-    "I don't have enough information in the retrieved UCLA dining sources to answer that. "
+    "I don't have enough information in the provided sources to answer that. "
     "Try rephrasing the question or asking about dining halls, meal plans, wait times, "
     "food trucks, mobile ordering, or student dining experiences covered by the corpus."
 )
