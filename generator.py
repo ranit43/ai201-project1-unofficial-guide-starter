@@ -86,7 +86,6 @@ def format_sources(chunks: list[dict[str, Any]]) -> str:
 def generate_response(query: str, retrieved_chunks: list[dict[str, Any]]) -> str:
     """
     Generate a grounded answer from retrieved UCLA dining chunks.
-
     The answer should use only retrieved context, cite numbered chunks inline, and
     decline when the provided context does not contain the answer.
     """
@@ -100,7 +99,7 @@ def generate_response(query: str, retrieved_chunks: list[dict[str, Any]]) -> str
         "Use only the retrieved context provided by the user. Do not use outside knowledge, "
         "current menus, current prices, or assumptions. If the context does not contain "
         "enough information to answer, say: \"I don't have enough information in the provided "
-        "sources to answer that.\" Keep the answer concise but specific. Cite claims with "
+        'sources to answer that." Keep the answer concise but specific. Cite claims with '
         "the numbered source markers like [1] or [2]. If sources disagree or are time-bound, "
         "say so instead of blending them into one certainty."
     )
